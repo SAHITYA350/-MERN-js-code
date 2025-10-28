@@ -1,0 +1,9 @@
+.length
+.toString
+.at
+.pop
+.push
+.unshift
+.shift
+delete()
+concatWithin

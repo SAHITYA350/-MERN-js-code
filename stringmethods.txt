@@ -1,0 +1,17 @@
+length();  for counting purpose
+concat();
+charAt();  // This are use extracting something from the string
+charCodeAt(); // This are use extracting something from the string
+codePointAt(); // This are use extracting something from the string
+substring();
+at();
+slice();
+toUppercase();
+toLowerCase();
+trim(),   trimStart(),  trimEnd()
+repeat();
+replace();
+split();
+
+
+charAt did not support - value but at support - value;
