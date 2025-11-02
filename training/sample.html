@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>MaterialX - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo span {
+            color: #00bcd4;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #666;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .search-icon, .menu-icon {
+            cursor: pointer;
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://plus.unsplash.com/premium_photo-1720287601920-ee8c503af775?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29kZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600') center/cover;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .hero h1 .highlight {
+            color: #00bcd4;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .hire-btn {
+            background-color: #00bcd4;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        .hire-btn:hover {
+            background-color: #0097a7;
+        }
+
+        .nav-dots {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            color: white;
+            font-size: 16px;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: white;
+            padding: 60px 50px;
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .my-story {
+            flex: 1;
+        }
+
+        .my-story h2 {
+            color: #00bcd4;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .my-story p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .download-btn {
+            background-color: #00bcd4;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #0097a7;
+        }
+
+        .profile-image {
+            flex: 0 0 auto;
+        }
+
+        .profile-image img {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            margin-right: 200px;
+            border-radius: 5px;
+            border: 4px solid black;
+        }
+
+        .personal-info {
+            flex: 0.6;
+        }
+
+        .personal-info h2 {
+            color: #00bcd4;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .info-label {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: #999;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .social-icon:hover {
+            background-color: #00bcd4;
+            border-color: #00bcd4;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 40px;
+            }
+
+            .profile-image img {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo"><i class="fa-solid fa-user-tie"></i>MATERIAL<span>X</span></div>
+        <nav>
+            <a href="#about">ABOUT ME</a>
+            <a href="#resume">RESUME</a>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#team">TEAM</a>
+            <a href="#testimonial">TESTIMONIAL</a>
+            <a href="#blog">BLOG</a>
+            <a href="#contact">CONTACT</a>
+            <div class="nav-icons">
+                <span class="search-icon">🔍</span>
+                <span class="menu-icon">☰</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1><span id="name">HI! I'M </span> <span class="highlight">Sahitya Ghosh</span></h1>
+        <p>FullStack AI Developer, MERN</p>
+        <button class="hire-btn">▶ Click ME</button>
+        
+        <div class="nav-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="my-story">
+            <h2>MY STORY</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Excepturi quas neque accusantium. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Consectetur adipisci quidem laborum?</p>
+            <button class="download-btn">📥 DOWNLOAD CV</button>
+        </div>
+
+        <div class="profile-image">
+            <img src="/training/image.jpg" alt="John Doe Profile">
+        </div>
+
+        <div class="personal-info">
+            <h2>PERSONAL INFORMATION</h2>
+            <div class="info-item">
+                <span class="info-label">Name:</span>
+                <span class="info-value">Sahitya Ghosh</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Age:</span>
+                <span class="info-value">20 Years</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Phone:</span>
+                <span class="info-value">+91 8777099335</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Email:</span>
+                <span class="info-value">sahitayghosh350@gmail.com</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Address:</span>
+                <span class="info-value">15/6B Ghosh Para Lane, Kolkata-700036</span>
+            </div>
+            
+            <div class="social-icons">
+                <div class="social-icon">f</div>
+                <div class="social-icon">𝕏</div>
+                <div class="social-icon">in</div>
+                <div class="social-icon">📷</div>
+                <div class="social-icon">▶</div>
+            </div>
+        </div>
+    </section>
+
+   <script>
+  
+    const nameText = document.querySelector('#name');
+    const heroBtn = document.querySelector('.hire-btn');
+
+
+    let colorToggle = false;
+    heroBtn.addEventListener("click", () => {
+    
+      colorToggle = !colorToggle;
+      nameText.style.color = colorToggle ? 'aqua' : 'white';
+    });
+  </script>
+
+</body>
+</html>

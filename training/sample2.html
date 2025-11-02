@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block</title>
+    <style>
+        .parent{
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        #box{
+           float: left;
+            width: 48%;
+            padding: 1rem;
+            background: aqua;
+            color: black;
+            text-align: center;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div id="box">left block</div>
+    <div id="box">right block</div>
+    </div>
+</body>
+</html>
